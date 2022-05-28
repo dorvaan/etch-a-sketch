@@ -13,9 +13,9 @@
     border: 1px solid black;
 }
 
-.grid:hover {
+/* .grid:hover {
     background-color: gray;
-}
+} */
 
 .grid:before {
     content: '';
