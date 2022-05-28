@@ -10,14 +10,6 @@ for (let i = 1; i < 257; i++) {
 
 //Color Grid
 
-let squares = document.getElementsByClassName("grid");
+const grid = document.querySelector('.grid');
+grid.addEventListener("mouseenter", grid.style.cssText = "background-color: gray;");
 
-squares.addEventListener("mouseover", function (event) {
-    alert("mouse over test!")
-}, false);
-
-
-// const grid = document.createElement('div');
-// grid.classList.add('grid');
-// grid.textContent = 'This is the glorious text-content!';
-// container.appendChild(grid);
