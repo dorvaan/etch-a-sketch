@@ -1,13 +1,14 @@
 const container = document.querySelector('.container');
-let gridside = 16
-const gridsize = (600 - (gridside * 2 + 2)) / gridside + "px"
+let gridSide = 16
+
 
 // Build Grid
 function buildGrid() {
-    for (let i = 1; i < (gridside * gridside) + 1; i++) {
+    const cellsize = (600 - (gridSide * 2 + 2)) / gridSide + "px"
+    for (let i = 1; i < (gridSide * gridSide) + 1; i++) {
         const div = document.createElement('div');
         div.classList.add('grid')
-        div.style.width = gridsize;
+        div.style.width = cellsize;
         div.addEventListener("mouseover", function (color) {
             div.style.backgroundColor = "black";
         })
@@ -22,5 +23,6 @@ document.getElementById("button1").onclick = function removeElementsByClass() {
     while (elements.length > 0) {
         elements[0].parentNode.removeChild(elements[0]);
     }
+    gridSide = prompt("How many squares per side?")
     buildGrid();
 }
