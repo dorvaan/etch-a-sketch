@@ -1,22 +1,26 @@
 const container = document.querySelector('.container');
+let gridside = 16
+const gridsize = (600 - (gridside * 2 + 2)) / gridside + "px"
 
 // Build Grid
-for (let i = 1; i < 257; i++) {
-    const div = document.createElement('div');
-    div.classList.add('grid')
-    div.style.cssText = "border: 1px solid black; width: 35.125px";
-    div.addEventListener("mouseover", function(color){
-       // div.style.cssText = "border: 1px solid black; width: 35.125px; background-color: black;"    
-       div.style.backgroundColor = "black";
+function buildGrid() {
+    for (let i = 1; i < (gridside * gridside) + 1; i++) {
+        const div = document.createElement('div');
+        div.classList.add('grid')
+        div.style.width = gridsize;
+        div.addEventListener("mouseover", function (color) {
+            div.style.backgroundColor = "black";
         })
-    container.appendChild(div);
+        container.appendChild(div);
+    }
 }
+buildGrid();
 
-
-
-
-//Color Grid
-
-// const grid = document.querySelector('.grid');
-// grid.addEventListener("mouseenter", grid.style.cssText = "background-color: gray;");
-
+// Clear Grid & Create New
+document.getElementById("button1").onclick = function removeElementsByClass() {
+    const elements = document.getElementsByClassName("grid");
+    while (elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+    buildGrid();
+}
